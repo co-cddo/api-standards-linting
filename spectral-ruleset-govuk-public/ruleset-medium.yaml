@@ -2,6 +2,7 @@ extends:
   - 'ruleset.yaml'
 rules:
   oas3-minimum:
+    documentationUrl: https://cddo-api-spec-linter.herokuapp.com/rules/oas3-minimum
     severity: error
     message: OpenAPI version must be 3 or higher
     given: "$"
@@ -12,6 +13,7 @@ rules:
         match: '3\.[0-9]?\.[0-9]'
 
   license:
+    documentationUrl: https://cddo-api-spec-linter.herokuapp.com/rules/license
     severity: error
     message: "The license should be a popular open source licence, for example: https://opensource.org/licenses/?categories=popular-strong-community"
     given: $.info.license.identifier
@@ -33,6 +35,7 @@ rules:
           - "MIT"
 
   operation-id:
+    documentationUrl: https://cddo-api-spec-linter.herokuapp.com/rules/operation-id
     severity: error
     message: "Every endpoint must have a unique operationId specified."
     given: "$.paths.*.*"
@@ -41,6 +44,7 @@ rules:
       field: operationId
 
   semver:
+    documentationUrl: https://cddo-api-spec-linter.herokuapp.com/rules/semver
     severity: error
     message: Version should use semantic versioning. {{value}} is not a valid version.
     given: $.info.version
@@ -50,6 +54,7 @@ rules:
         match: '^([0-9]+\.[0-9]+\.[0-9]+)$'
 
   paths-kebab-case:
+    documentationUrl: https://cddo-api-spec-linter.herokuapp.com/rules/paths-kebab-case
     severity: error
     given: $.paths[*]~
     message: "Paths should use kebab case."

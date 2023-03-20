@@ -2,6 +2,7 @@ extends:
   - [spectral:oas, all]
 rules:
   oas3-always-use-https:
+    documentationUrl: https://cddo-api-spec-linter.herokuapp.com/rules/oas3-always-use-https
     severity: error
     message: Servers must use the HTTPS protocol except when using localhost
     given: "$.servers[*].url"
@@ -11,6 +12,7 @@ rules:
         match: "(http:\/\/localhost)|(https).*"
     formats: ["oas3"]
   oas2-always-use-https:
+    documentationUrl: https://cddo-api-spec-linter.herokuapp.com/rules/oas2-always-use-https
     severity: error
     given: "$.schemes.*"
     then:
@@ -21,6 +23,7 @@ rules:
     message: Servers must use the HTTPS protocol
     formats: ["oas2"]
   no-x-headers:
+    documentationUrl: https://cddo-api-spec-linter.herokuapp.com/rules/no-x-headers
     severity: error
     message: Headers should not use the X- prefix
     given: "$..parameters[?(@.in === 'header')].name"
@@ -30,6 +33,7 @@ rules:
         match:
           "^([^xX]|.[^-])"
   no-x-response-headers:
+    documentationUrl: https://cddo-api-spec-linter.herokuapp.com/rules/no-x-response-headers
     severity: error
     message: Headers should not use the X- prefix
     given: "$..headers.*~"
@@ -39,6 +43,7 @@ rules:
         match:
           "^([^xX]|.[^-])"
   description:
+    documentationUrl: https://cddo-api-spec-linter.herokuapp.com/rules/description
     severity: error
     given: "$"
     description: "The info object must contain a description"
@@ -46,6 +51,7 @@ rules:
       field: "info.description"
       function: truthy
   contact:
+    documentationUrl: https://cddo-api-spec-linter.herokuapp.com/rules/contact
     severity: error
     given: "$"
     description: "The info object must contain either a contact email or contact url"
@@ -53,6 +59,7 @@ rules:
       field: "info.contact"
       function: truthy
   domain-name-length:
+    documentationUrl: https://cddo-api-spec-linter.herokuapp.com/rules/domain-name-length
     severity: error
     given: "$.servers[*].url"
     description: "The domain name must be between 3 and 63 characters long."
@@ -61,6 +68,7 @@ rules:
       functionOptions:
         match: '(http:\/\/localhost$)|(https:\/\/([^\.]{3,63}\.)+[^\.]{2,63}$)'
   domain-name-characters:
+    documentationUrl: https://cddo-api-spec-linter.herokuapp.com/rules/domain-name-characters
     severity: error
     given: "$.servers[*].url"
     description: "The domain name must contain only alphanumeric characters (0-9 and a-z) and the ‘-’ (dash) symbol."

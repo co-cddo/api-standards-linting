@@ -2,6 +2,7 @@ extends:
   - 'ruleset-medium.yaml'
 rules:
   oas3-strict:
+    documentationUrl: https://cddo-api-spec-linter.herokuapp.com/rules/oas3-strict
     severity: error
     message: OpenAPI version must be 3.1.0
     given: "$"
@@ -12,6 +13,7 @@ rules:
         match: '3\.1\.0'
 
   license-strict:
+    documentationUrl: https://cddo-api-spec-linter.herokuapp.com/rules/license-strict
     severity: error
     message: "The licence should be Apache 2.0"
     given: $.info.license.identifier
@@ -21,6 +23,7 @@ rules:
         match: 'Apache-2\.0'
 
   license-url:
+    documentationUrl: https://cddo-api-spec-linter.herokuapp.com/rules/license-url
     severity: error
     message: "The licence url should link to the correct Apache 2.0 site."
     given: $.info.license.url
@@ -30,6 +33,7 @@ rules:
         match: 'https://www\.apache\.org/licenses/LICENSE-2\.0'
 
   not-acceptable:
+    documentationUrl: https://cddo-api-spec-linter.herokuapp.com/rules/not-acceptable
     severity: error
     given: "$.paths.[*][get,put,post,delete,patch].responses"
     description: "Resources that can provide a response body must declare a response for an HTTP 406 Not Acceptable"
@@ -38,6 +42,7 @@ rules:
       function: truthy
 
   unsupported-media-type:
+    documentationUrl: https://cddo-api-spec-linter.herokuapp.com/rules/unsupported-media-type
     severity: error
     given: "$.paths.[*][put,post,patch].responses"
     description: "Resources that consume a request body must declare a response for an HTTP 415 Unsupported Media Type"
