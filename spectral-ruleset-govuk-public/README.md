@@ -76,3 +76,24 @@ You can follow the instructions in the [Spectral documentation](https://meta.sto
 
 Alternatively you can install the NPM package in your repository as described above, and run it as you would any NPM package. An example of this using Github Actions can be found in the [federated API model repository](https://github.com/co-cddo/federated-api-model/blob/main/.github/workflows/openapi-docs-pr.yml).
 
+## Rulesets
+
+There are 3 different rulesets available in this NPM package. The default ruleset is the least opinionated. There are two more rulesets that are increasingly opinionated, `ruleset-medium.yaml` and `ruleset-high.yaml`. `ruleset-high.yaml` is the most opinionated of the 3 rulesets.
+
+To use either the medium or high rulesets, you can specify this in your `.spectral.yaml` file. For example to use the medium one:
+
+```yaml
+extends:
+  - '@govuk-data-standards/spectral-ruleset-govuk-public/ruleset-medium.yaml'
+formats:
+  - "oas3.1"
+```
+
+You can also use the ruleset via HTTPS url, for example to use the medium ruleset:
+
+```yaml
+extends:
+  - https://raw.githubusercontent.com/co-cddo/api-standards-linting/spectral-ruleset-govuk-public-v0.3.0/spectral-ruleset-govuk-public/ruleset-medium.yaml
+formats:
+  - "oas3.1"
+```
