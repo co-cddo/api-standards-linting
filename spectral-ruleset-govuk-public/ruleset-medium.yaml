@@ -1,5 +1,5 @@
 extends:
-  - 'ruleset.yaml'
+  - '@govuk-data-standards/spectral-ruleset-govuk-public'
 rules:
   oas3-minimum:
     documentationUrl: https://cddo-api-spec-linter.herokuapp.com/rules/oas3-minimum

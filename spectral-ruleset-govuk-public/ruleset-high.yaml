@@ -1,5 +1,5 @@
 extends:
-  - 'ruleset-medium.yaml'
+  - '@govuk-data-standards/spectral-ruleset-govuk-public/ruleset-medium.yaml'
 rules:
   oas3-strict:
     documentationUrl: https://cddo-api-spec-linter.herokuapp.com/rules/oas3-strict
